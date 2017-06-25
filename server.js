@@ -2,7 +2,7 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 8080,
   mongoose = require('mongoose'),
-  Task = require('./api/models/model'),
+  User = require('./api/models/model'),
   bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
@@ -16,5 +16,5 @@ routes(app);
 
 app.listen(port);
 
-console.log('todo list RESTful API server started on: ' + port);
+console.log('Oscar RESTful API server started on: ' + port);
 
