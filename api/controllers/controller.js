@@ -14,8 +14,10 @@ exports.listAllUsers = function(req, res) {
 exports.createUser = function(req, res) {
   var newUser = new User(req.body);
   newUser.save(function(err, user) {
-    if (err)
+    if (err) {
+      res.status(400);
       res.send(err);
+    }
     res.json(user);
   });
 };
