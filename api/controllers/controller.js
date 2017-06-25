@@ -11,6 +11,15 @@ exports.listAllUsers = function(req, res) {
   });
 };
 
+exports.createUser = function(req, res) {
+  var newUser = new User(req.body);
+  newUser.save(function(err, user) {
+    if (err)
+      res.send(err);
+    res.json(user);
+  });
+};
+
 // exports.list_all_tasks = function(req, res) {
 //   Task.find({}, function(err, task) {
 //     if (err)

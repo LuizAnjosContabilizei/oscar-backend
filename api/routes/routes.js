@@ -4,8 +4,8 @@ module.exports = function(app) {
 
   // todoList Routes
   app.route('/users')
-    .get(todoList.listAllUsers);
-    // .post(todoList.create_a_task);
+    .get(todoList.listAllUsers)
+    .post(todoList.createUser);
 
   // app.route('/users/:userId')
   //   .get(todoList.read_a_task)
