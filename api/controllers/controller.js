@@ -24,11 +24,11 @@ exports.createUser = function(req, res) {
 
 exports.login = function(req, res) {
   var reqBody = req.body;
-  var query = {
+  var criteria = {
     email: reqBody.email,
     password: reqBody.password,
   };
-  User.find(query, function(err, user) {
+  User.find(criteria, function(err, user) {
     if (err)
       res.send(err);
     if (user.length === 0) {
