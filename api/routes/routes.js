@@ -10,6 +10,9 @@ module.exports = function(app) {
   app.route('/login')
     .post(userController.login);
 
+  app.route('/vote')
+    .put(userController.updateUser);
+
   // app.route('/users/:userId')
   //   .get(todoList.read_a_task)
   //   .put(todoList.update_a_task)

@@ -40,6 +40,15 @@ exports.login = function(req, res) {
   });
 };
 
+exports.updateUser = function(req, res) {
+  var criteria = { email: req.body.email };
+  User.findOneAndUpdate(criteria, req.body, {new: true}, function(err, user) {
+    if (err)
+      res.send(err);
+    res.json(user);
+  });
+};
+
 // exports.list_all_tasks = function(req, res) {
 //   Task.find({}, function(err, task) {
 //     if (err)
