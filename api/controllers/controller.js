@@ -20,6 +20,24 @@ exports.createUser = function(req, res) {
   });
 };
 
+exports.login = function(req, res) {
+  var reqBody = req.body;
+  var query = {
+    email: reqBody.email,
+    password: reqBody.password,
+  };
+  User.find(query, function(err, user) {
+    if (err)
+      res.send(err);
+    if (user.length === 0) {
+      res.status(401);
+      res.json({});
+    } else {
+      res.json(user[0]);
+    }
+  });
+};
+
 // exports.list_all_tasks = function(req, res) {
 //   Task.find({}, function(err, task) {
 //     if (err)
